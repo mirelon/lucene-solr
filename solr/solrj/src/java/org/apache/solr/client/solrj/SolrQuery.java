@@ -371,7 +371,7 @@ public class SolrQuery extends ModifiableSolrParams
 
   public SolrQuery setFacetPrefix( String field, String prefix )
   {
-    this.set( "f."+field+"."+FacetParams.FACET_PREFIX, prefix );
+    this.set( CommonParams.FIELD + "."+field+"."+FacetParams.FACET_PREFIX, prefix );
     return this;
   }
 
@@ -744,7 +744,7 @@ public class SolrQuery extends ModifiableSolrParams
     }
     else {
       for( String f : facets ) {
-        this.add( "f."+field+"."+StatsParams.STATS_FACET, f );
+        this.add(CommonParams.FIELD + "." + field + "." + StatsParams.STATS_FACET, f );
       }
     }
   }
@@ -753,7 +753,7 @@ public class SolrQuery extends ModifiableSolrParams
     if (field == null) {
       this.add(StatsParams.STATS_CALC_DISTINCT, Boolean.toString(calcDistinct));
     } else {
-      this.add("f." + field + "." + StatsParams.STATS_CALC_DISTINCT, Boolean.toString(calcDistinct));
+      this.add(CommonParams.FIELD + "." + field + "." + StatsParams.STATS_CALC_DISTINCT, Boolean.toString(calcDistinct));
     }
   }
 
